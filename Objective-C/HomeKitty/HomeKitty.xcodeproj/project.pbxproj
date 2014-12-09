@@ -14,7 +14,7 @@
 		7B69FAF41A37A13E00EF7DF1 /* HomeKittyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FAF31A37A13E00EF7DF1 /* HomeKittyTests.m */; };
 		7B69FB041A37A4D500EF7DF1 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B69FB031A37A4D500EF7DF1 /* HomeKit.framework */; };
 		7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */; };
-		7B69FB0B1A37A76900EF7DF1 /* FancyTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0A1A37A76900EF7DF1 /* FancyTable.m */; };
+		7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		7B69FB031A37A4D500EF7DF1 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		7B69FB061A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+BNRQuickConstraints.h"; sourceTree = "<group>"; };
 		7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+BNRQuickConstraints.m"; sourceTree = "<group>"; };
-		7B69FB091A37A76900EF7DF1 /* FancyTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FancyTable.h; sourceTree = "<group>"; };
-		7B69FB0A1A37A76900EF7DF1 /* FancyTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FancyTable.m; sourceTree = "<group>"; };
+		7B69FB091A37A76900EF7DF1 /* BNRFancyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRFancyTableView.h; sourceTree = "<group>"; };
+		7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRFancyTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +127,8 @@
 		7B69FAFD1A37A46700EF7DF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7B69FB091A37A76900EF7DF1 /* FancyTable.h */,
-				7B69FB0A1A37A76900EF7DF1 /* FancyTable.m */,
+				7B69FB091A37A76900EF7DF1 /* BNRFancyTableView.h */,
+				7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */,
 				7B69FAE61A37A13E00EF7DF1 /* LaunchScreen.xib */,
 			);
 			name = Views;
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B69FB0B1A37A76900EF7DF1 /* FancyTable.m in Sources */,
+				7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */,
 				7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */,
 				7B69FADD1A37A13E00EF7DF1 /* AppDelegate.m in Sources */,
 				7B69FADA1A37A13E00EF7DF1 /* main.m in Sources */,
@@ -470,6 +470,7 @@
 				7B69FAF91A37A13E00EF7DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B69FAFA1A37A13E00EF7DF1 /* Build configuration list for PBXNativeTarget "HomeKittyTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +479,7 @@
 				7B69FAFC1A37A13E00EF7DF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  FancyTable.h
+//  BNRFancyTableView.h
 //  HomeKitty
 //
 //  Created by Joseph W. Dixon on 12/9/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FancyTable : UIView
+@interface BNRFancyTableView : UIView
 
 @property (nonatomic, weak) id<UITableViewDataSource> dataSource;
 @property (nonatomic, weak) id<UITableViewDelegate> delegate;
