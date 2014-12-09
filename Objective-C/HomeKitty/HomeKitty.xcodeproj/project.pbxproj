@@ -13,6 +13,7 @@
 		7B69FAE81A37A13E00EF7DF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B69FAE61A37A13E00EF7DF1 /* LaunchScreen.xib */; };
 		7B69FAF41A37A13E00EF7DF1 /* HomeKittyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FAF31A37A13E00EF7DF1 /* HomeKittyTests.m */; };
 		7B69FB041A37A4D500EF7DF1 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B69FB031A37A4D500EF7DF1 /* HomeKit.framework */; };
+		7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		7B69FAF31A37A13E00EF7DF1 /* HomeKittyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeKittyTests.m; sourceTree = "<group>"; };
 		7B69FB021A37A4D500EF7DF1 /* HomeKitty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeKitty.entitlements; sourceTree = "<group>"; };
 		7B69FB031A37A4D500EF7DF1 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		7B69FB061A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+BNRQuickConstraints.h"; sourceTree = "<group>"; };
+		7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+BNRQuickConstraints.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 		7B69FB001A37A48300EF7DF1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				7B69FB061A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.h */,
+				7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */,
 				7B69FADD1A37A13E00EF7DF1 /* AppDelegate.m in Sources */,
 				7B69FADA1A37A13E00EF7DF1 /* main.m in Sources */,
 			);
