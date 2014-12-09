@@ -15,6 +15,7 @@
 		7B69FB041A37A4D500EF7DF1 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B69FB031A37A4D500EF7DF1 /* HomeKit.framework */; };
 		7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */; };
 		7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */; };
+		7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+BNRQuickConstraints.m"; sourceTree = "<group>"; };
 		7B69FB091A37A76900EF7DF1 /* BNRFancyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRFancyTableView.h; sourceTree = "<group>"; };
 		7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRFancyTableView.m; sourceTree = "<group>"; };
+		7B69FB0C1A37B91C00EF7DF1 /* HomeRoomsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRoomsVC.h; sourceTree = "<group>"; };
+		7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRoomsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 			children = (
 				7B69FADB1A37A13E00EF7DF1 /* AppDelegate.h */,
 				7B69FADC1A37A13E00EF7DF1 /* AppDelegate.m */,
+				7B69FB0C1A37B91C00EF7DF1 /* HomeRoomsVC.h */,
+				7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */,
 				7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */,
 				7B69FADD1A37A13E00EF7DF1 /* AppDelegate.m in Sources */,
+				7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */,
 				7B69FADA1A37A13E00EF7DF1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
