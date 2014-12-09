@@ -19,6 +19,19 @@
 
 @implementation HomeRoomsVC
 
+#pragma mark - Initializers
+
+- (instancetype)init {
+    return [super initWithNibName:nil bundle:nil];
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    NSAssert(NO, @"Use the no argument -init method instead");
+    return nil;
+}
+
+#pragma mark - View Lifecycle
+
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     
