@@ -41,4 +41,21 @@
     return [self initWithFrame:frame style:UITableViewStylePlain];
 }
 
+#pragma mark - Table View
+- (void)setDataSource:(id<UITableViewDataSource>)dataSource {
+    [self.tableView setDataSource:dataSource];
+}
+
+- (id<UITableViewDataSource>)dataSource {
+    return self.tableView.dataSource;
+}
+
+- (void)setDelegate:(id<UITableViewDelegate>)delegate {
+    [self.tableView setDelegate:delegate];
+}
+
+- (id<UITableViewDelegate>)delegate {
+    return self.tableView.delegate;
+}
+
 @end

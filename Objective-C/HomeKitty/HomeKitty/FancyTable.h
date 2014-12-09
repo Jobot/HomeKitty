@@ -10,6 +10,9 @@
 
 @interface FancyTable : UIView
 
+@property (nonatomic, weak) id<UITableViewDataSource> dataSource;
+@property (nonatomic, weak) id<UITableViewDelegate> delegate;
+
 #pragma mark - Initializers
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
