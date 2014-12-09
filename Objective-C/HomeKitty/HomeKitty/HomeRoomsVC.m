@@ -37,17 +37,26 @@
     
     BNRFancyTableView *homeList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
     [view addSubview:homeList];
+    self.homeList = homeList;
     
     BNRFancyTableView *roomList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
     [view addSubview:roomList];
+    self.roomList = roomList;
+    
+    [self setView:view];
+}
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    BNRFancyTableView *homeList = self.homeList;
+    BNRFancyTableView *roomList = self.roomList;
+    
     NSString *hPad = @"12";
     NSString *vPad = @"12";
     NSString *format = [NSString stringWithFormat:@"H:|-%@-[homeList]-%@-|,H:|-%@-[roomList]-%@-|,V:|-%@-[homeList]-%@-[roomList]-%@-|", hPad, hPad, hPad, hPad, vPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(homeList, roomList);
-    [view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
-    
-    [self setView:view];
+    [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
 }
 
 @end
