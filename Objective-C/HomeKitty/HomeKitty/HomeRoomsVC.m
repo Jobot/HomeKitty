@@ -16,6 +16,7 @@
 @property (nonatomic, weak) BNRFancyTableView *homeList;
 @property (nonatomic, weak) BNRFancyTableView *roomList;
 @property (nonatomic) HomeDataSource *homeDataSource;
+@property (nonatomic) id<NSObject> homeChangeObserver;
 
 @end
 
@@ -68,6 +69,29 @@
     NSString *format = [NSString stringWithFormat:@"H:|-%@-[homeList]-%@-|,H:|-%@-[roomList]-%@-|,V:|-%@-[homeList]-%@-[roomList(==homeList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(homeList, roomList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    __weak BNRFancyTableView *table = self.homeList;
+    self.homeChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:HomeDataSourceDidChangeNotification
+                                                                                object:nil
+                                                                                 queue:[NSOperationQueue mainQueue]
+                                                                            usingBlock:^(NSNotification *note) {
+        
+        [table reloadData];
+        
+    }];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (self.homeChangeObserver) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.homeChangeObserver];
+        self.homeChangeObserver = nil;
+    }
 }
 
 @end
