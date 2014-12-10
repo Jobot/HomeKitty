@@ -67,4 +67,16 @@ NSString * const HomeDataSourceDidChangeNotification = @"HomeDataSourceDidChange
     [[NSNotificationCenter defaultCenter] postNotificationName:HomeDataSourceDidChangeNotification object:nil];
 }
 
+#pragma mark - Home Management
+
+- (void)addHomeWithName:(NSString *)name {
+    [self.homeManager addHomeWithName:name completionHandler:^(HMHome *home, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:HomeDataSourceDidChangeNotification object:nil];
+        }
+    }];
+}
+
 @end

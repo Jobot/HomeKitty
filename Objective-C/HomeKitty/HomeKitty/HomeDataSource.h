@@ -17,5 +17,6 @@ extern NSString * const HomeDataSourceDidChangeNotification;
 
 - (instancetype)initWithHomeManager:(HMHomeManager *)homeManager;
 - (HMHome *)homeForRow:(NSInteger)row;
+- (void)addHomeWithName:(NSString *)name;
 
 @end
