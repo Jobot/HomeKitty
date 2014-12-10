@@ -11,6 +11,7 @@
 #import "RoomDataSource.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
+@import HomeKit;
 
 static NSInteger const HomeRoomsAddHomeTextFieldTag = -100;
 static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
@@ -70,6 +71,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     BNRFancyTableView *homeList = self.homeList;
     homeList.dataSource = self.homeDataSource;
     homeList.translatesAutoresizingMaskIntoConstraints = NO;
+    [homeList setTitle:@"Homes" withTextAttributes:nil];
     UIBarButtonItem *addHomeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
                                                                                    action:@selector(didPressAddHomeButton:)];
@@ -80,6 +82,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     BNRFancyTableView *roomList = self.roomList;
     roomList.dataSource = self.roomDataSource;
     roomList.translatesAutoresizingMaskIntoConstraints = NO;
+    [roomList setTitle:nil withTextAttributes:nil];
     UIBarButtonItem *addRoomButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
                                                                                    action:@selector(didPressAddRoomButton:)];
@@ -123,6 +126,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     self.homeList.didSelectBlock = ^(NSIndexPath *indexPath) {
         weakSelf.roomDataSource.home = [weakSelf.homeDataSource homeForRow:indexPath.row];
         weakSelf.addRoomButton.enabled = YES;
+        NSString *title = [NSString stringWithFormat:@"Rooms for Home: %@", weakSelf.roomDataSource.home.name];
+        [weakSelf.roomList setTitle:title withTextAttributes:nil];
     };
     
     self.homeList.didDeselectBlock = ^(NSIndexPath *indexPath) {
