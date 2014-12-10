@@ -97,6 +97,10 @@
                                                                                 [weakSelf.roomList reloadData];
                                                                                 
                                                                             }];
+    
+    self.homeList.didSelectBlock = ^(NSIndexPath *indexPath) {
+        weakSelf.roomDataSource.home = [weakSelf.homeDataSource homeForRow:indexPath.row];
+    };
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
