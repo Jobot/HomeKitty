@@ -139,6 +139,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     
     self.roomList.didSelectBlock = ^(NSIndexPath *indexPath) {
         AccessoriesVC *accessoriesVC = [[AccessoriesVC alloc] init];
+        accessoriesVC.room = [weakSelf.roomDataSource roomForRow:indexPath.row];
         [self showViewController:accessoriesVC sender:self];
     };
 }

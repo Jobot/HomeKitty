@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class HMRoom;
+
 @interface AccessoriesVC : UIViewController
+
+@property (nonatomic) HMRoom *room;
 
 @end
