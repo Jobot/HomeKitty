@@ -19,6 +19,7 @@
 		7B69FB111A389AEB00EF7DF1 /* HomeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */; };
 		7B69FB141A38A4A800EF7DF1 /* RoomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */; };
 		7B69FB171A38D0E600EF7DF1 /* AccessoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB161A38D0E600EF7DF1 /* AccessoriesVC.m */; };
+		7B69FB1D1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB1C1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDataSource.m; sourceTree = "<group>"; };
 		7B69FB151A38D0E600EF7DF1 /* AccessoriesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesVC.h; sourceTree = "<group>"; };
 		7B69FB161A38D0E600EF7DF1 /* AccessoriesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesVC.m; sourceTree = "<group>"; };
+		7B69FB1B1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoriesInRoomDataSource.h; sourceTree = "<group>"; };
+		7B69FB1C1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoriesInRoomDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */,
 				7B69FB121A38A4A800EF7DF1 /* RoomDataSource.h */,
 				7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */,
+				7B69FB1B1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.h */,
+				7B69FB1C1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				7B69FADA1A37A13E00EF7DF1 /* main.m in Sources */,
 				7B69FB111A389AEB00EF7DF1 /* HomeDataSource.m in Sources */,
 				7B69FB171A38D0E600EF7DF1 /* AccessoriesVC.m in Sources */,
+				7B69FB1D1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
