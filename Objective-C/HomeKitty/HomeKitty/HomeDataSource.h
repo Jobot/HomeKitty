@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class HMHome;
 @class HMHomeManager;
 
 extern NSString * const HomeDataSourceDidChangeNotification;
@@ -15,5 +16,6 @@ extern NSString * const HomeDataSourceDidChangeNotification;
 @interface HomeDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithHomeManager:(HMHomeManager *)homeManager;
+- (HMHome *)homeForRow:(NSInteger)row;
 
 @end

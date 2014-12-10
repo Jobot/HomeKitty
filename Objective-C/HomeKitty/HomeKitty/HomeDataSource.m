@@ -51,10 +51,14 @@ NSString * const HomeDataSourceDidChangeNotification = @"HomeDataSourceDidChange
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomeCell"];
     }
     
-    HMHome *home = self.homeManager.homes[indexPath.row];
+    HMHome *home = [self homeForRow:indexPath.row];
     cell.textLabel.text = home.name;
     
     return cell;
+}
+
+- (HMHome *)homeForRow:(NSInteger)row {
+    return self.homeManager.homes[row];
 }
 
 #pragma mark - Home Manager Delegate
