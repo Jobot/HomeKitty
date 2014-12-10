@@ -22,11 +22,15 @@
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame];
     if (self) {
+        self.translatesAutoresizingMaskIntoConstraints = NO;
+        
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectZero];
+        toolbar.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:toolbar];
         self.toolbar = toolbar;
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
+        tableView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:tableView];
         self.tableView = tableView;
         
