@@ -16,4 +16,7 @@
 #pragma mark - Initializers
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
+#pragma mark - Table View
+- (void)reloadData;
+
 @end

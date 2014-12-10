@@ -62,4 +62,8 @@
     return self.tableView.delegate;
 }
 
+- (void)reloadData {
+    [self.tableView reloadData];
+}
+
 @end
