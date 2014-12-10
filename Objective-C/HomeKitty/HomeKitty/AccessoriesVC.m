@@ -66,7 +66,7 @@
     NSNumber *vPad = @12;
     NSNumber *navPad = @(navBar.frame.origin.y + navBar.frame.size.height + [vPad floatValue]);
     
-    NSString *format = [NSString stringWithFormat:@"H:|-%@-[assignedList]-%@-|,H:|-%@-[unassignedList]-%@-|,V:|-%@-[assignedList]-%@-[unassignedList(==assignedList)-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
+    NSString *format = [NSString stringWithFormat:@"H:|-%@-[assignedList]-%@-|,H:|-%@-[unassignedList]-%@-|,V:|-%@-[assignedList]-%@-[unassignedList(==assignedList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(assignedList, unassignedList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
 }
