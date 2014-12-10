@@ -9,6 +9,8 @@
 #import "UnassignedAccessoriesDataSource.h"
 @import HomeKit;
 
+NSString * const UnassignedAccessoriesDataSourceDidChangeNotification = @"UnassignedAccessoriesDataSourceDidChangeNotification";
+
 @interface UnassignedAccessoriesDataSource() <HMAccessoryBrowserDelegate>
 
 @property (nonatomic) HMAccessoryBrowser *accessoryBrowser;
@@ -58,6 +60,16 @@
     cell.textLabel.text = accessory.name;
     
     return cell;
+}
+
+#pragma mark - Accessory Browser Delegate
+
+- (void)accessoryBrowser:(HMAccessoryBrowser *)browser didFindNewAccessory:(HMAccessory *)accessory {
+    [[NSNotificationCenter defaultCenter] postNotificationName:UnassignedAccessoriesDataSourceDidChangeNotification object:nil];
+}
+
+- (void)accessoryBrowser:(HMAccessoryBrowser *)browser didRemoveNewAccessory:(HMAccessory *)accessory {
+    [[NSNotificationCenter defaultCenter] postNotificationName:UnassignedAccessoriesDataSourceDidChangeNotification object:nil];
 }
 
 @end

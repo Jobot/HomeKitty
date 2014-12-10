@@ -10,6 +10,8 @@
 
 @class HMAccessoryBrowser;
 
+extern NSString * const UnassignedAccessoriesDataSourceDidChangeNotification;
+
 @interface UnassignedAccessoriesDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithAccessoryBrowser:(HMAccessoryBrowser *)accessoryBrowser;
