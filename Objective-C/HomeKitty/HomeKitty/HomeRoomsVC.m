@@ -127,6 +127,11 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
         [[NSNotificationCenter defaultCenter] removeObserver:self.homeChangeObserver];
         self.homeChangeObserver = nil;
     }
+    
+    if (self.roomChangeObserver) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.roomChangeObserver];
+        self.roomChangeObserver = nil;
+    }
 }
 
 #pragma mark - Actions
