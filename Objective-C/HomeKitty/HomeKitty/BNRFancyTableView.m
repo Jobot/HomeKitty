@@ -9,7 +9,7 @@
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
 
-@interface BNRFancyTableView()
+@interface BNRFancyTableView() <UITableViewDelegate>
 
 @property (nonatomic, weak) UIToolbar *toolbar;
 @property (nonatomic, weak) UITableView *tableView;
@@ -30,6 +30,7 @@
         self.toolbar = toolbar;
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
+        tableView.delegate = self;
         tableView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:tableView];
         self.tableView = tableView;
@@ -64,6 +65,20 @@
 
 - (void)reloadData {
     [self.tableView reloadData];
+}
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.didSelectBlock) {
+        self.didSelectBlock(indexPath);
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.didDeselectBlock) {
+        self.didDeselectBlock(indexPath);
+    }
 }
 
 @end

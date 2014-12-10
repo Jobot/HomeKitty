@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^BNRFancyTableSelectionBlock)(NSIndexPath *indexPath);
+
 @interface BNRFancyTableView : UIView
 
 @property (nonatomic, weak) id<UITableViewDataSource> dataSource;
 @property (nonatomic, weak) id<UITableViewDelegate> delegate;
+@property (nonatomic, strong) BNRFancyTableSelectionBlock didSelectBlock;
+@property (nonatomic, strong) BNRFancyTableSelectionBlock didDeselectBlock;
 
 #pragma mark - Initializers
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
