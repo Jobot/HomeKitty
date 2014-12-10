@@ -59,4 +59,16 @@ NSString * const RoomDataSourceDidChangeNotification = @"RoomDataSourceDidChange
     }
 }
 
+#pragma mark - Room Management
+
+- (void)addRoomWithname:(NSString *)name {
+    [self.home addRoomWithName:name completionHandler:^(HMRoom *room, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:RoomDataSourceDidChangeNotification object:nil];
+        }
+    }];
+}
+
 @end

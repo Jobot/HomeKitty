@@ -16,4 +16,6 @@ extern NSString * const RoomDataSourceDidChangeNotification;
 
 @property (nonatomic) HMHome *home;
 
+- (void)addRoomWithname:(NSString *)name;
+
 @end

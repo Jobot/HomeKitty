@@ -175,7 +175,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     [alert addAction:[UIAlertAction actionWithTitle:@"Add"
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction *action) {
-                                                NSLog(@"ADDING ROOM: %@", weakSelf.addedRoomText);
+                                                [weakSelf.roomDataSource addRoomWithname:weakSelf.addedRoomText];
                                             }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
