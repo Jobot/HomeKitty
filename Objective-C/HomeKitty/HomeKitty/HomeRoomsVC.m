@@ -82,7 +82,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     BNRFancyTableView *roomList = self.roomList;
     roomList.dataSource = self.roomDataSource;
     roomList.translatesAutoresizingMaskIntoConstraints = NO;
-    [roomList setTitle:nil withTextAttributes:nil];
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor grayColor] };
+    [roomList setTitle:@"Please select a home" withTextAttributes:attributes];
     UIBarButtonItem *addRoomButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
                                                                                    action:@selector(didPressAddRoomButton:)];
