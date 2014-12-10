@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) UIToolbar *toolbar;
 @property (nonatomic, weak) UITableView *tableView;
+@property (nonatomic) NSMutableArray *toolbarItems;
 
 @end
 
@@ -35,6 +36,8 @@
         [self addSubview:tableView];
         self.tableView = tableView;
         
+        self.toolbarItems = [NSMutableArray array];
+        
         NSDictionary *views = NSDictionaryOfVariableBindings(toolbar, tableView);
         NSString *format = @"H:|[toolbar]|,H:|[tableView]|,V:|[toolbar(44)]-0-[tableView]|";
         [self addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
@@ -44,6 +47,21 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     return [self initWithFrame:frame style:UITableViewStylePlain];
+}
+
+#pragma mark - Toolbar
+- (void)addToolbarItem:(UIBarButtonItem *)item {
+    [self.toolbarItems addObject:item];
+    
+    NSMutableArray *items = [NSMutableArray array];
+    [items addObject:[self toolbarLeftSpaceItem]];
+    [items addObjectsFromArray:self.toolbarItems];
+    
+    self.toolbar.items = items;
+}
+
+- (UIBarButtonItem *)toolbarLeftSpaceItem {
+    return [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
 }
 
 #pragma mark - Table View

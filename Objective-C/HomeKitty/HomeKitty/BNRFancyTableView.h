@@ -20,6 +20,9 @@ typedef void(^BNRFancyTableSelectionBlock)(NSIndexPath *indexPath);
 #pragma mark - Initializers
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
+#pragma mark - Toolbar
+- (void)addToolbarItem:(UIBarButtonItem *)item;
+
 #pragma mark - Table View
 - (void)reloadData;
 
