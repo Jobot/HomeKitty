@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class HMHome;
+@class HMRoom;
 
 extern NSString * const RoomDataSourceDidChangeNotification;
 
@@ -16,6 +17,7 @@ extern NSString * const RoomDataSourceDidChangeNotification;
 
 @property (nonatomic) HMHome *home;
 
+- (HMRoom *)roomForRow:(NSInteger)row;
 - (void)addRoomWithname:(NSString *)name;
 
 @end

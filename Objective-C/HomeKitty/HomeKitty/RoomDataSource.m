@@ -42,6 +42,10 @@ NSString * const RoomDataSourceDidChangeNotification = @"RoomDataSourceDidChange
     return cell;
 }
 
+- (HMRoom *)roomForRow:(NSInteger)row {
+    return self.home.rooms[row];
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
