@@ -7,6 +7,7 @@
 //
 
 #import "HomeRoomsVC.h"
+#import "HomeDataSource.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
 
@@ -14,6 +15,7 @@
 
 @property (nonatomic, weak) BNRFancyTableView *homeList;
 @property (nonatomic, weak) BNRFancyTableView *roomList;
+@property (nonatomic) HomeDataSource *homeDataSource;
 
 @end
 
@@ -49,7 +51,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.homeDataSource = [[HomeDataSource alloc] init];
+    
     BNRFancyTableView *homeList = self.homeList;
+    homeList.dataSource = self.homeDataSource;
     homeList.translatesAutoresizingMaskIntoConstraints = NO;
     
     BNRFancyTableView *roomList = self.roomList;

@@ -16,6 +16,7 @@
 		7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB071A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m */; };
 		7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */; };
 		7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */; };
+		7B69FB111A389AEB00EF7DF1 /* HomeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRFancyTableView.m; sourceTree = "<group>"; };
 		7B69FB0C1A37B91C00EF7DF1 /* HomeRoomsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeRoomsVC.h; sourceTree = "<group>"; };
 		7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRoomsVC.m; sourceTree = "<group>"; };
+		7B69FB0F1A389AEB00EF7DF1 /* HomeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataSource.h; sourceTree = "<group>"; };
+		7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 		7B69FAFE1A37A47100EF7DF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7B69FB0F1A389AEB00EF7DF1 /* HomeDataSource.h */,
+				7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				7B69FADD1A37A13E00EF7DF1 /* AppDelegate.m in Sources */,
 				7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */,
 				7B69FADA1A37A13E00EF7DF1 /* main.m in Sources */,
+				7B69FB111A389AEB00EF7DF1 /* HomeDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
