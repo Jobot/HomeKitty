@@ -52,7 +52,10 @@
 #pragma mark - Toolbar
 - (void)addToolbarItem:(UIBarButtonItem *)item {
     [self.toolbarItems addObject:item];
-    
+    [self refreshToolbarItems];
+}
+
+- (void)refreshToolbarItems {
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:[self toolbarLeftSpaceItem]];
     [items addObjectsFromArray:self.toolbarItems];
