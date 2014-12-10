@@ -23,6 +23,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
 @property (nonatomic) RoomDataSource *roomDataSource;
 @property (nonatomic) id<NSObject> homeChangeObserver;
 @property (nonatomic) id<NSObject> roomChangeObserver;
+@property (nonatomic, weak) UIBarButtonItem *addHomeButton;
+@property (nonatomic, weak) UIBarButtonItem *addRoomButton;
 @property (nonatomic) NSString *addedHomeText;
 @property (nonatomic) NSString *addedRoomText;
 
@@ -72,6 +74,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
                                                                                    target:self
                                                                                    action:@selector(didPressAddHomeButton:)];
     [homeList addToolbarItem:addHomeButton];
+    self.addHomeButton = addHomeButton;
     
     // configure room list
     BNRFancyTableView *roomList = self.roomList;
@@ -80,7 +83,9 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     UIBarButtonItem *addRoomButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
                                                                                    action:@selector(didPressAddRoomButton:)];
+    addRoomButton.enabled = NO;
     [roomList addToolbarItem:addRoomButton];
+    self.addRoomButton = addRoomButton;
     
     // add constraints
     UINavigationBar *navBar = self.navigationController.navigationBar;
@@ -117,6 +122,11 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     
     self.homeList.didSelectBlock = ^(NSIndexPath *indexPath) {
         weakSelf.roomDataSource.home = [weakSelf.homeDataSource homeForRow:indexPath.row];
+        weakSelf.addRoomButton.enabled = YES;
+    };
+    
+    self.homeList.didDeselectBlock = ^(NSIndexPath *indexPath) {
+        weakSelf.addRoomButton.enabled = NO;
     };
 }
 
