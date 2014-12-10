@@ -9,6 +9,7 @@
 #import "HomeRoomsVC.h"
 #import "HomeDataSource.h"
 #import "RoomDataSource.h"
+#import "AccessoriesVC.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
 @import HomeKit;
@@ -106,6 +107,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     [super viewDidAppear:animated];
     
     __weak __typeof(self) weakSelf = self;
+    
     self.homeChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:HomeDataSourceDidChangeNotification
                                                                                 object:nil
                                                                                  queue:[NSOperationQueue mainQueue]
@@ -133,6 +135,11 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     
     self.homeList.didDeselectBlock = ^(NSIndexPath *indexPath) {
         weakSelf.addRoomButton.enabled = NO;
+    };
+    
+    self.roomList.didSelectBlock = ^(NSIndexPath *indexPath) {
+        AccessoriesVC *accessoriesVC = [[AccessoriesVC alloc] init];
+        [self showViewController:accessoriesVC sender:self];
     };
 }
 
