@@ -50,11 +50,17 @@
     [super viewDidLoad];
     
     BNRFancyTableView *homeList = self.homeList;
-    BNRFancyTableView *roomList = self.roomList;
+    homeList.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSString *hPad = @"12";
-    NSString *vPad = @"12";
-    NSString *format = [NSString stringWithFormat:@"H:|-%@-[homeList]-%@-|,H:|-%@-[roomList]-%@-|,V:|-%@-[homeList]-%@-[roomList]-%@-|", hPad, hPad, hPad, hPad, vPad, vPad, vPad];
+    BNRFancyTableView *roomList = self.roomList;
+    roomList.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    NSNumber *hPad = @12;
+    NSNumber *vPad = @12;
+    NSNumber *navPad = @(navBar.frame.origin.y + navBar.frame.size.height + [vPad floatValue]);
+    
+    NSString *format = [NSString stringWithFormat:@"H:|-%@-[homeList]-%@-|,H:|-%@-[roomList]-%@-|,V:|-%@-[homeList]-%@-[roomList(==homeList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(homeList, roomList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
 }
