@@ -61,6 +61,23 @@ NSString * const HomeDataSourceDidChangeNotification = @"HomeDataSourceDidChange
     return self.homeManager.homes[row];
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        HMHome *home = self.homeManager.homes[indexPath.row];
+        [self.homeManager removeHome:home completionHandler:^(NSError *error) {
+            if (error) {
+                NSLog(@"%@", error);
+            } else {
+                [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        }];
+    }
+}
+
 #pragma mark - Home Manager Delegate
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
