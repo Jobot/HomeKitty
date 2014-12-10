@@ -10,6 +10,8 @@
 
 @class HMHomeManager;
 
+extern NSString * const HomeDataSourceDidChangeNotification;
+
 @interface HomeDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithHomeManager:(HMHomeManager *)homeManager;

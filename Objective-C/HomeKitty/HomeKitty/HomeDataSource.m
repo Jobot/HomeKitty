@@ -9,6 +9,8 @@
 #import "HomeDataSource.h"
 @import HomeKit;
 
+NSString * const HomeDataSourceDidChangeNotification = @"HomeDataSourceDidChangeNotification";
+
 @interface HomeDataSource() <HMHomeManagerDelegate>
 
 @property (nonatomic) HMHomeManager *homeManager;
@@ -28,6 +30,7 @@
     self = [super init];
     if (self) {
         _homeManager = homeManager;
+        _homeManager.delegate = self;
     }
     return self;
 }
@@ -57,7 +60,7 @@
 #pragma mark - Home Manager Delegate
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-    // Reload Table View
+    [[NSNotificationCenter defaultCenter] postNotificationName:HomeDataSourceDidChangeNotification object:nil];
 }
 
 @end
