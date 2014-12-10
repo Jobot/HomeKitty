@@ -17,6 +17,7 @@
 		7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0A1A37A76900EF7DF1 /* BNRFancyTableView.m */; };
 		7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */; };
 		7B69FB111A389AEB00EF7DF1 /* HomeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */; };
+		7B69FB141A38A4A800EF7DF1 /* RoomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeRoomsVC.m; sourceTree = "<group>"; };
 		7B69FB0F1A389AEB00EF7DF1 /* HomeDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDataSource.h; sourceTree = "<group>"; };
 		7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDataSource.m; sourceTree = "<group>"; };
+		7B69FB121A38A4A800EF7DF1 /* RoomDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDataSource.h; sourceTree = "<group>"; };
+		7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 			children = (
 				7B69FB0F1A389AEB00EF7DF1 /* HomeDataSource.h */,
 				7B69FB101A389AEB00EF7DF1 /* HomeDataSource.m */,
+				7B69FB121A38A4A800EF7DF1 /* RoomDataSource.h */,
+				7B69FB131A38A4A800EF7DF1 /* RoomDataSource.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */,
+				7B69FB141A38A4A800EF7DF1 /* RoomDataSource.m in Sources */,
 				7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */,
 				7B69FADD1A37A13E00EF7DF1 /* AppDelegate.m in Sources */,
 				7B69FB0E1A37B91C00EF7DF1 /* HomeRoomsVC.m in Sources */,
