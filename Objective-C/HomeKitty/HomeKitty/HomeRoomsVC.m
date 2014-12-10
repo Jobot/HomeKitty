@@ -8,6 +8,7 @@
 
 #import "HomeRoomsVC.h"
 #import "HomeDataSource.h"
+#import "RoomDataSource.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
 
@@ -16,7 +17,9 @@
 @property (nonatomic, weak) BNRFancyTableView *homeList;
 @property (nonatomic, weak) BNRFancyTableView *roomList;
 @property (nonatomic) HomeDataSource *homeDataSource;
+@property (nonatomic) RoomDataSource *roomDataSource;
 @property (nonatomic) id<NSObject> homeChangeObserver;
+@property (nonatomic) id<NSObject> roomChangeObserver;
 
 @end
 
@@ -53,12 +56,14 @@
     [super viewDidLoad];
     
     self.homeDataSource = [[HomeDataSource alloc] init];
+    self.roomDataSource = [[RoomDataSource alloc] init];
     
     BNRFancyTableView *homeList = self.homeList;
     homeList.dataSource = self.homeDataSource;
     homeList.translatesAutoresizingMaskIntoConstraints = NO;
     
     BNRFancyTableView *roomList = self.roomList;
+    roomList.dataSource = self.roomDataSource;
     roomList.translatesAutoresizingMaskIntoConstraints = NO;
     
     UINavigationBar *navBar = self.navigationController.navigationBar;
@@ -74,15 +79,24 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    __weak BNRFancyTableView *table = self.homeList;
+    __weak __typeof(self) weakSelf = self;
     self.homeChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:HomeDataSourceDidChangeNotification
                                                                                 object:nil
                                                                                  queue:[NSOperationQueue mainQueue]
                                                                             usingBlock:^(NSNotification *note) {
-        
-        [table reloadData];
-        
-    }];
+                                                                                
+                                                                                [weakSelf.homeList reloadData];
+                                                                                
+                                                                            }];
+    
+    self.roomChangeObserver = [[NSNotificationCenter defaultCenter] addObserverForName:RoomDataSourceDidChangeNotification
+                                                                                object:nil
+                                                                                 queue:[NSOperationQueue mainQueue]
+                                                                            usingBlock:^(NSNotification *note) {
+                                                                                
+                                                                                [weakSelf.roomList reloadData];
+                                                                                
+                                                                            }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
