@@ -26,4 +26,7 @@ typedef void(^BNRFancyTableSelectionBlock)(NSIndexPath *indexPath);
 #pragma mark - Table View
 - (void)reloadData;
 
+#pragma mark - Title
+- (void)setTitle:(NSString *)title withTextAttributes:(NSDictionary *)attributes;
+
 @end
