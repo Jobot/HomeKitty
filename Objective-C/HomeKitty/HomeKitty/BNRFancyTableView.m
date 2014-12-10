@@ -123,6 +123,7 @@
 - (void)setTitle:(NSString *)title withTextAttributes:(NSDictionary *)attributes {
     _title = [title copy];
     _titleTextAttributes = [attributes copy];
+    [self refreshToolbarItems];
 }
 
 @end
