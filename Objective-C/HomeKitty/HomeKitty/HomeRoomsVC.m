@@ -64,6 +64,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Homes";
+    
     // configure data sources
     self.homeDataSource = [[HomeDataSource alloc] init];
     self.roomDataSource = [[RoomDataSource alloc] init];
@@ -138,8 +140,10 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     };
     
     self.roomList.didSelectBlock = ^(NSIndexPath *indexPath) {
+        HMHome *home = weakSelf.roomDataSource.home;
+        HMRoom *room = [weakSelf.roomDataSource roomForRow:indexPath.row];
         AccessoriesVC *accessoriesVC = [[AccessoriesVC alloc] init];
-        accessoriesVC.room = [weakSelf.roomDataSource roomForRow:indexPath.row];
+        [accessoriesVC setRoom:room inHome:home];
         [self showViewController:accessoriesVC sender:self];
     };
 }

@@ -7,13 +7,21 @@
 //
 
 #import "AccessoriesVC.h"
+#import "AccessoriesInRoomDataSource.h"
+#import "UnassignedAccessoriesDataSource.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
+@import HomeKit;
 
 @interface AccessoriesVC ()
 
+@property (nonatomic) HMHome *home;
+@property (nonatomic) HMRoom *room;
 @property (nonatomic, weak) BNRFancyTableView *assignedList;
 @property (nonatomic, weak) BNRFancyTableView *unassignedList;
+@property (nonatomic) AccessoriesInRoomDataSource *assignedDataSource;
+@property (nonatomic) UnassignedAccessoriesDataSource *unassignedDataSource;
+@property (nonatomic) id<NSObject> unassignedAccessoriesChangeObserver;
 
 @end
 
@@ -49,16 +57,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Accessories";
+    
+    // configure data sources
+    self.assignedDataSource = [[AccessoriesInRoomDataSource alloc] init];
+    [self.assignedDataSource setRoom:self.room inHome:self.home];
+    self.unassignedDataSource = [[UnassignedAccessoriesDataSource alloc] init];
+    
     // configure assigned list
     BNRFancyTableView *assignedList = self.assignedList;
+    assignedList.dataSource = self.assignedDataSource;
     assignedList.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor grayColor] };
-    [assignedList setTitle:@"Please select a room" withTextAttributes:attributes];
+    NSString *title = @"Please select a room";
+    UIColor *color = [UIColor grayColor];
+    if (self.room.name) {
+        title = [NSString stringWithFormat:@"Assigned to %@", self.room.name];
+        color = [UIColor blackColor];
+    }
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : color };
+    [assignedList setTitle:title withTextAttributes:attributes];
     
     // configure unassigned list
     BNRFancyTableView *unassignedList = self.unassignedList;
+    unassignedList.dataSource = self.unassignedDataSource;
     unassignedList.translatesAutoresizingMaskIntoConstraints = NO;
-    [unassignedList setTitle:@"Available Acessories" withTextAttributes:nil];
+    [unassignedList setTitle:@"Unassigned" withTextAttributes:nil];
     
     // add constraints
     UINavigationBar *navBar = self.navigationController.navigationBar;
@@ -69,6 +92,35 @@
     NSString *format = [NSString stringWithFormat:@"H:|-%@-[assignedList]-%@-|,H:|-%@-[unassignedList]-%@-|,V:|-%@-[assignedList]-%@-[unassignedList(==assignedList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(assignedList, unassignedList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    __weak __typeof(self) weakSelf = self;
+    
+    NSNotificationCenter *notary = [NSNotificationCenter defaultCenter];
+    self.unassignedAccessoriesChangeObserver = [notary addObserverForName:UnassignedAccessoriesDataSourceDidChangeNotification
+                                                                   object:nil
+                                                                    queue:[NSOperationQueue mainQueue]
+                                                               usingBlock:^(NSNotification *note) {
+                                                                   [weakSelf.unassignedList reloadData];
+                                                               }];
+    }
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (self.unassignedAccessoriesChangeObserver) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self.unassignedAccessoriesChangeObserver];
+    }
+}
+
+#pragma mark - Room Management
+
+- (void)setRoom:(HMRoom *)room inHome:(HMHome *)home {
+    self.room = room;
+    self.home = home;
 }
 
 @end

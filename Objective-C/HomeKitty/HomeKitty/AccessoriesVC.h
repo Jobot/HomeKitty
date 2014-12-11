@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class HMHome;
 @class HMRoom;
 
 @interface AccessoriesVC : UIViewController
 
-@property (nonatomic) HMRoom *room;
+- (void)setRoom:(HMRoom *)room inHome:(HMHome *)home;
 
 @end
