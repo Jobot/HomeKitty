@@ -104,6 +104,10 @@
     [self.tableView reloadData];
 }
 
+- (NSIndexPath *)indexPathForSelectedRow {
+    return self.tableView.indexPathForSelectedRow;
+}
+
 #pragma mark - Table View Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
