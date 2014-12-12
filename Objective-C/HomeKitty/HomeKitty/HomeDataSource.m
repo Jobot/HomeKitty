@@ -73,6 +73,7 @@ NSString * const HomeDataSourceDidChangeNotification = @"HomeDataSourceDidChange
                 NSLog(@"%@", error);
             } else {
                 [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+                [[NSNotificationCenter defaultCenter] postNotificationName:HomeDataSourceDidChangeNotification object:nil];
             }
         }];
     }

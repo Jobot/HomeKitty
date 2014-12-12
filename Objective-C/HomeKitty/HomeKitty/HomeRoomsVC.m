@@ -86,14 +86,12 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     BNRFancyTableView *roomList = self.roomList;
     roomList.dataSource = self.roomDataSource;
     roomList.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor grayColor] };
-    [roomList setTitle:@"Please select a home" withTextAttributes:attributes];
     UIBarButtonItem *addRoomButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                    target:self
                                                                                    action:@selector(didPressAddRoomButton:)];
-    addRoomButton.enabled = NO;
     [roomList addToolbarItem:addRoomButton];
     self.addRoomButton = addRoomButton;
+    [self roomListEnabled:NO];
     
     // add constraints
     UINavigationBar *navBar = self.navigationController.navigationBar;
@@ -119,6 +117,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
                                                                             usingBlock:^(NSNotification *note) {
                                                                                 
                                                                                 [weakSelf.homeList reloadData];
+                                                                                weakSelf.roomDataSource.home = nil;
+                                                                                [weakSelf roomListEnabled:NO];
                                                                                 
                                                                             }];
     
@@ -133,13 +133,12 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     
     self.homeList.didSelectBlock = ^(NSIndexPath *indexPath) {
         weakSelf.roomDataSource.home = [weakSelf.homeDataSource homeForRow:indexPath.row];
-        weakSelf.addRoomButton.enabled = YES;
-        NSString *title = [NSString stringWithFormat:@"Rooms for Home: %@", weakSelf.roomDataSource.home.name];
-        [weakSelf.roomList setTitle:title withTextAttributes:nil];
+        [weakSelf roomListEnabled:YES];
     };
     
     self.homeList.didDeselectBlock = ^(NSIndexPath *indexPath) {
-        weakSelf.addRoomButton.enabled = NO;
+        weakSelf.roomDataSource.home = nil;
+        [weakSelf roomListEnabled:NO];
     };
     
     self.roomList.didSelectBlock = ^(NSIndexPath *indexPath) {
@@ -165,6 +164,23 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     }
 }
 
+#pragma mark - Title Management
+
+- (void)roomListEnabled:(BOOL)enabled {
+    NSDictionary *attributes;
+    NSString *title;
+    if (enabled) {
+        self.addRoomButton.enabled = YES;
+        title = [NSString stringWithFormat:@"Rooms for home: %@", self.roomDataSource.home.name];
+    } else {
+        attributes = @{ NSForegroundColorAttributeName : [UIColor grayColor] };
+        self.addRoomButton.enabled = NO;
+        title = @"Please select a home";
+    }
+    [self.roomList setTitle:title withTextAttributes:attributes];
+    [self.roomList reloadData];
+}
+
 #pragma mark - Actions
 
 - (void)didPressAddHomeButton:(id)sender {
@@ -184,6 +200,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
                                              style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction *action) {
                                                [weakSelf.homeDataSource addHomeWithName:weakSelf.addedHomeText];
+                                               weakSelf.roomDataSource.home = nil;
+                                               [weakSelf roomListEnabled:NO];
                                            }]];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
