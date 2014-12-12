@@ -62,6 +62,10 @@ NSString * const UnassignedAccessoriesDataSourceDidChangeNotification = @"Unassi
     return cell;
 }
 
+- (HMAccessory *)accessoryForRow:(NSInteger)row {
+    return self.accessoryBrowser.discoveredAccessories[row];
+}
+
 #pragma mark - Accessory Browser Delegate
 
 - (void)accessoryBrowser:(HMAccessoryBrowser *)browser didFindNewAccessory:(HMAccessory *)accessory {

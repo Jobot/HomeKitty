@@ -22,7 +22,7 @@
 @property (nonatomic) AccessoriesInRoomDataSource *assignedDataSource;
 @property (nonatomic) UnassignedAccessoriesDataSource *unassignedDataSource;
 @property (nonatomic) id<NSObject> unassignedAccessoriesChangeObserver;
-
+@property (nonatomic, weak) UIBarButtonItem *assignToRoomButton;
 @end
 
 @implementation AccessoriesVC
@@ -82,6 +82,13 @@
     unassignedList.dataSource = self.unassignedDataSource;
     unassignedList.translatesAutoresizingMaskIntoConstraints = NO;
     [unassignedList setTitle:@"Unassigned" withTextAttributes:nil];
+    UIBarButtonItem *assignButton = [[UIBarButtonItem alloc] initWithTitle:@"Assign to Room"
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(didPressAssignButton:)];
+    assignButton.enabled = NO;
+    [unassignedList addToolbarItem:assignButton];
+    self.assignToRoomButton = assignButton;
     
     // add constraints
     UINavigationBar *navBar = self.navigationController.navigationBar;
@@ -94,8 +101,8 @@
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     __weak __typeof(self) weakSelf = self;
     
@@ -106,7 +113,16 @@
                                                                usingBlock:^(NSNotification *note) {
                                                                    [weakSelf.unassignedList reloadData];
                                                                }];
-    }
+    self.unassignedList.didSelectBlock = ^(NSIndexPath *indexPath) {
+        self.assignToRoomButton.enabled = YES;
+    };
+    
+    self.unassignedList.didDeselectBlock = ^(NSIndexPath *indexPath) {
+        self.assignToRoomButton.enabled = NO;
+    };
+    
+    [self.unassignedList reloadData];
+}
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -121,6 +137,23 @@
 - (void)setRoom:(HMRoom *)room inHome:(HMHome *)home {
     self.room = room;
     self.home = home;
+}
+
+#pragma mark - Actions
+
+- (void)didPressAssignButton:(id)sender {
+    __weak __typeof(self) weakSelf = self;
+    
+    NSIndexPath *indexPath = self.unassignedList.indexPathForSelectedRow;
+    HMAccessory *accessory = [self.unassignedDataSource accessoryForRow:indexPath.row];
+    [self.home addAccessory:accessory completionHandler:^(NSError *error) {
+        if (!error) {
+            [weakSelf.home assignAccessory:accessory toRoom:weakSelf.room completionHandler:^(NSError *error) {
+                [weakSelf.assignedList reloadData];
+                [weakSelf.unassignedList reloadData];
+            }];
+        }
+    }];
 }
 
 @end

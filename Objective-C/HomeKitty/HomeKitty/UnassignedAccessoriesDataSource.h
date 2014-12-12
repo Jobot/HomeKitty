@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class HMAccessory;
 @class HMAccessoryBrowser;
 
 extern NSString * const UnassignedAccessoriesDataSourceDidChangeNotification;
@@ -15,5 +16,6 @@ extern NSString * const UnassignedAccessoriesDataSourceDidChangeNotification;
 @interface UnassignedAccessoriesDataSource : NSObject <UITableViewDataSource>
 
 - (instancetype)initWithAccessoryBrowser:(HMAccessoryBrowser *)accessoryBrowser;
+- (HMAccessory *)accessoryForRow:(NSInteger)row;
 
 @end
