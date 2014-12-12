@@ -12,6 +12,7 @@
 #import "AccessoriesVC.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
+#import "UIColor+BNRAppColors.h"
 @import HomeKit;
 
 static NSInteger const HomeRoomsAddHomeTextFieldTag = -100;
@@ -103,6 +104,8 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     NSString *format = [NSString stringWithFormat:@"H:|-%@-[homeList]-%@-|,H:|-%@-[roomList]-%@-|,V:|-%@-[homeList]-%@-[roomList(==homeList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(homeList, roomList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
+    
+    self.view.backgroundColor = [UIColor bnr_backgroundColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

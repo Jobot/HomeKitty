@@ -11,6 +11,7 @@
 #import "UnassignedAccessoriesDataSource.h"
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
+#import "UIColor+BNRAppColors.h"
 @import HomeKit;
 
 @interface AccessoriesVC ()
@@ -99,6 +100,8 @@
     NSString *format = [NSString stringWithFormat:@"H:|-%@-[assignedList]-%@-|,H:|-%@-[unassignedList]-%@-|,V:|-%@-[assignedList]-%@-[unassignedList(==assignedList)]-%@-|", hPad, hPad, hPad, hPad, navPad, vPad, vPad];
     NSDictionary *views = NSDictionaryOfVariableBindings(assignedList, unassignedList);
     [self.view addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
+    
+    self.view.backgroundColor = [UIColor bnr_backgroundColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
