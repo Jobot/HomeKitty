@@ -47,4 +47,21 @@
     return cell;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        HMAccessory *accessory = self.room.accessories[indexPath.row];
+        [self.home removeAccessory:accessory completionHandler:^(NSError *error) {
+            if (error) {
+                NSLog(@"%@", error);
+            } else {
+                [tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+        }];
+    }
+}
+
 @end
