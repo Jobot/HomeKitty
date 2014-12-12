@@ -196,7 +196,7 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
     __weak __typeof(self) weakSelf = self;
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Name your Room"
-                                                                   message:@"Rooms within a home must be uniquely named. Please name yours"
+                                                                   message:@"Rooms within a home must be uniquely named. Please name yours."
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
