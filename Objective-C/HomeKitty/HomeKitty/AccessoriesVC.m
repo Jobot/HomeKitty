@@ -43,11 +43,11 @@
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     
-    BNRFancyTableView *assignedList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
+    BNRFancyTableView *assignedList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero style:BNRFancyTableStyleRounded];
     [view addSubview:assignedList];
     self.assignedList = assignedList;
     
-    BNRFancyTableView *unassignedList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
+    BNRFancyTableView *unassignedList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero style:BNRFancyTableStyleRounded];
     [view addSubview:unassignedList];
     self.unassignedList = unassignedList;
     

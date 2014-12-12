@@ -50,11 +50,11 @@ static NSInteger const HomeRoomsAddRoomTextFieldTag = -101;
 - (void)loadView {
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
     
-    BNRFancyTableView *homeList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
+    BNRFancyTableView *homeList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero style:BNRFancyTableStyleRounded];
     [view addSubview:homeList];
     self.homeList = homeList;
     
-    BNRFancyTableView *roomList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero];
+    BNRFancyTableView *roomList = [[BNRFancyTableView alloc] initWithFrame:CGRectZero style:BNRFancyTableStyleRounded];
     [view addSubview:roomList];
     self.roomList = roomList;
     
