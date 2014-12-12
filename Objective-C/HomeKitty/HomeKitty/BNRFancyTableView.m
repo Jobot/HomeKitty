@@ -22,7 +22,7 @@
 @implementation BNRFancyTableView
 
 #pragma mark - Initializers
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+- (instancetype)initWithFrame:(CGRect)frame style:(BNRFancyTableStyle)style {
     self = [super initWithFrame:frame];
     if (self) {
         self.translatesAutoresizingMaskIntoConstraints = NO;
@@ -32,7 +32,7 @@
         [self addSubview:toolbar];
         self.toolbar = toolbar;
         
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         tableView.delegate = self;
         tableView.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:tableView];
@@ -43,12 +43,23 @@
         NSDictionary *views = NSDictionaryOfVariableBindings(toolbar, tableView);
         NSString *format = @"H:|[toolbar]|,H:|[tableView]|,V:|[toolbar(44)]-0-[tableView]|";
         [self addConstraints:[NSLayoutConstraint bnr_constraintsWithCommaDelimitedFormat:format views:views]];
+        
+        [self configureStyle:style];
     }
     return self;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    return [self initWithFrame:frame style:UITableViewStylePlain];
+    return [self initWithFrame:frame style:BNRFancyTableStylePlain];
+}
+
+#pragma mark - Style
+
+- (void)configureStyle:(BNRFancyTableStyle)style {
+    if (style == BNRFancyTableStyleRounded) {
+        self.layer.cornerRadius = 5;
+        self.layer.masksToBounds = YES;
+    }
 }
 
 #pragma mark - Toolbar

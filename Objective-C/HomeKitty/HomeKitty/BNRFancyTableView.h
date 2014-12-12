@@ -10,6 +10,11 @@
 
 typedef void(^BNRFancyTableSelectionBlock)(NSIndexPath *indexPath);
 
+typedef NS_ENUM(NSUInteger, BNRFancyTableStyle) {
+    BNRFancyTableStylePlain = 0,
+    BNRFancyTableStyleRounded = 1
+};
+
 @interface BNRFancyTableView : UIView
 
 @property (nonatomic, weak) id<UITableViewDataSource> dataSource;
@@ -18,7 +23,7 @@ typedef void(^BNRFancyTableSelectionBlock)(NSIndexPath *indexPath);
 @property (nonatomic, strong) BNRFancyTableSelectionBlock didDeselectBlock;
 
 #pragma mark - Initializers
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
+- (instancetype)initWithFrame:(CGRect)frame style:(BNRFancyTableStyle)style;
 
 #pragma mark - Toolbar
 - (void)addToolbarItem:(UIBarButtonItem *)item;
