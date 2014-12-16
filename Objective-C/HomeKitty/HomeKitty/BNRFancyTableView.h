@@ -21,6 +21,7 @@ typedef NS_ENUM(NSUInteger, BNRFancyTableStyle) {
 @property (nonatomic, weak) id<UITableViewDelegate> delegate;
 @property (nonatomic, strong) BNRFancyTableSelectionBlock didSelectBlock;
 @property (nonatomic, strong) BNRFancyTableSelectionBlock didDeselectBlock;
+@property (nonatomic, strong) BNRFancyTableSelectionBlock didTapAccessoryBlock;
 
 #pragma mark - Initializers
 - (instancetype)initWithFrame:(CGRect)frame style:(BNRFancyTableStyle)style;

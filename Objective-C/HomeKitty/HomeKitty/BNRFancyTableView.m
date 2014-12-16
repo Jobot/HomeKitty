@@ -133,6 +133,12 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    if (self.didTapAccessoryBlock) {
+        self.didTapAccessoryBlock(indexPath);
+    }
+}
+
 #pragma mark - Title
 
 - (void)setTitle:(NSString *)title withTextAttributes:(NSDictionary *)attributes {
