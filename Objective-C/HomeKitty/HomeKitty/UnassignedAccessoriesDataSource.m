@@ -58,6 +58,7 @@ NSString * const UnassignedAccessoriesDataSourceDidChangeNotification = @"Unassi
     
     HMAccessory *accessory = self.accessoryBrowser.discoveredAccessories[indexPath.row];
     cell.textLabel.text = accessory.name;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     return cell;
 }
