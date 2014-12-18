@@ -22,6 +22,7 @@
 		7B69FB1D1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB1C1A390AD200EF7DF1 /* AccessoriesInRoomDataSource.m */; };
 		7B69FB201A390D7400EF7DF1 /* UnassignedAccessoriesDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB1F1A390D7400EF7DF1 /* UnassignedAccessoriesDataSource.m */; };
 		7B69FB231A3B4CD900EF7DF1 /* UIColor+BNRAppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B69FB221A3B4CD900EF7DF1 /* UIColor+BNRAppColors.m */; };
+		7B7F3D1D1A40A433002B03B3 /* AccessoryDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7F3D1C1A40A433002B03B3 /* AccessoryDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		7B69FB1F1A390D7400EF7DF1 /* UnassignedAccessoriesDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnassignedAccessoriesDataSource.m; sourceTree = "<group>"; };
 		7B69FB211A3B4CD900EF7DF1 /* UIColor+BNRAppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BNRAppColors.h"; sourceTree = "<group>"; };
 		7B69FB221A3B4CD900EF7DF1 /* UIColor+BNRAppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BNRAppColors.m"; sourceTree = "<group>"; };
+		7B7F3D1B1A40A433002B03B3 /* AccessoryDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryDetailVC.h; sourceTree = "<group>"; };
+		7B7F3D1C1A40A433002B03B3 /* AccessoryDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				7B69FB0D1A37B91C00EF7DF1 /* HomeRoomsVC.m */,
 				7B69FB151A38D0E600EF7DF1 /* AccessoriesVC.h */,
 				7B69FB161A38D0E600EF7DF1 /* AccessoriesVC.m */,
+				7B7F3D1B1A40A433002B03B3 /* AccessoryDetailVC.h */,
+				7B7F3D1C1A40A433002B03B3 /* AccessoryDetailVC.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			files = (
 				7B69FB201A390D7400EF7DF1 /* UnassignedAccessoriesDataSource.m in Sources */,
 				7B69FB0B1A37A76900EF7DF1 /* BNRFancyTableView.m in Sources */,
+				7B7F3D1D1A40A433002B03B3 /* AccessoryDetailVC.m in Sources */,
 				7B69FB141A38A4A800EF7DF1 /* RoomDataSource.m in Sources */,
 				7B69FB231A3B4CD900EF7DF1 /* UIColor+BNRAppColors.m in Sources */,
 				7B69FB081A37A59700EF7DF1 /* NSLayoutConstraint+BNRQuickConstraints.m in Sources */,

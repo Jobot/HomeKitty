@@ -12,6 +12,7 @@
 #import "BNRFancyTableView.h"
 #import "NSLayoutConstraint+BNRQuickConstraints.h"
 #import "UIColor+BNRAppColors.h"
+#import "AccessoryDetailVC.h"
 @import HomeKit;
 
 @interface AccessoriesVC ()
@@ -117,11 +118,23 @@
                                                                    [weakSelf.unassignedList reloadData];
                                                                }];
     self.unassignedList.didSelectBlock = ^(NSIndexPath *indexPath) {
-        self.assignToRoomButton.enabled = YES;
+        weakSelf.assignToRoomButton.enabled = YES;
     };
     
     self.unassignedList.didDeselectBlock = ^(NSIndexPath *indexPath) {
-        self.assignToRoomButton.enabled = NO;
+        weakSelf.assignToRoomButton.enabled = NO;
+    };
+    
+    self.unassignedList.didTapAccessoryBlock = ^(NSIndexPath *indexPath) {
+        HMAccessory *accessory = [weakSelf.unassignedDataSource accessoryForRow:indexPath.row];
+        AccessoryDetailVC *detailVC = [[AccessoryDetailVC alloc] initWithAccessory:accessory];
+        [weakSelf showViewController:detailVC sender:self];
+    };
+    
+    self.assignedList.didTapAccessoryBlock = ^(NSIndexPath *indexPath) {
+        HMAccessory *accessory = [weakSelf.assignedDataSource accessoryForRow:indexPath.row];
+        AccessoryDetailVC *detailVC = [[AccessoryDetailVC alloc] initWithAccessory:accessory];
+        [weakSelf showViewController:detailVC sender:self];
     };
     
     [self.unassignedList reloadData];
