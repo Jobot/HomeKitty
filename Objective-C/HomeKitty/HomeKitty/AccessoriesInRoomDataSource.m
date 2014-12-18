@@ -43,8 +43,13 @@
     
     HMAccessory *accessory = self.room.accessories[indexPath.row];
     cell.textLabel.text = accessory.name;
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     return cell;
+}
+
+- (HMAccessory *)accessoryForRow:(NSInteger)row {
+    return self.room.accessories[row];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

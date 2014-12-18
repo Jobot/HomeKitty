@@ -10,9 +10,11 @@
 
 @class HMHome;
 @class HMRoom;
+@class HMAccessory;
 
 @interface AccessoriesInRoomDataSource : NSObject <UITableViewDataSource>
 
 - (void)setRoom:(HMRoom *)room inHome:(HMHome *)home;
+- (HMAccessory *)accessoryForRow:(NSInteger)row;
 
 @end
